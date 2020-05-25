@@ -1,0 +1,139 @@
+$breakpoints: (xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1300px) !default;
+
+@mixin media($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media (max-width: #{map-get($breakpoints, $size)}) {
+      @content;
+    }
+  }
+
+  @else if str-length($size)==0 {
+    @content;
+  }
+
+  @else {
+    @media ($size) {
+      @content;
+    }
+  }
+}
+
+.app {
+  padding: 10px;
+  background-color: #f0f0f0;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  max-width: 1600px;
+  justify-content: space-evenly;
+  align-items: center;
+
+  @include media(xl) {
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  @include media(sm) {
+    height: auto;
+  }
+}
+
+.app--fullscreen {
+  @include media(sm) {
+    height: 100vh;
+  }
+}
+
+.card {
+  height: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 41px 41px 82px #cccccc,
+    -41px -41px 82px #ffffff;
+  transition: all 0.3s;
+  background-color: #f0f0f0;
+}
+
+.card--left {
+  margin-right: 20px;
+
+  @include media(xl) {
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+
+  @include media(sm) {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.card--right {
+  margin-left: 20px;
+
+  @include media(xl) {
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+
+  @include media(sm) {
+    margin: 0;
+    margin-top: 10px;
+  }
+}
+
+.card__content {
+  overflow-y: scroll;
+  border: none;
+  border-radius: 10px;
+  flex: 1;
+  padding: 20px;
+  outline: none;
+  resize: none;
+  background-color: #f0f0f0;
+  box-shadow: inset 5px 5px 10px #dddddd,
+    inset -5px -5px 10px #ffffff;
+  margin-left: 1rem;
+}
+
+.card__header,
+.card__footer {
+  background-color: #f0f0f0;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card__button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffffff, #d8d8d8);
+  box-shadow: 4px 4px 8px #cccccc,
+    -4px -4px 8px #ffffff;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background: linear-gradient(145deg, #d8d8d8, #ffffff);
+  }
+}
+
+.card--fullscreen {
+  width: 100%;
+  height: 100%;
+}
+
+.card--hidden {
+  width: 0;
+  height: 0;
+  margin: 0;
+}

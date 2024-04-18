@@ -11,6 +11,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@components": path.resolve(__dirname, "src/components"),
+      "@context": path.resolve(__dirname, "src/context"),
     },
   },
   test: {
@@ -20,7 +21,7 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       include: ["src"],
-      exclude: ["src/main.tsx"],
+      exclude: ["src/main.tsx", "**/*.constants.*"],
     },
   },
 });

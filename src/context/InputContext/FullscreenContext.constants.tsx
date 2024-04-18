@@ -1,3 +1,5 @@
+import { InputContextResult } from "./FullscreenContext.types";
+
 export const inputDefaultValue = `# Welcome to my React Markdown Previewer!
 
 ## This is a sub-heading...
@@ -43,3 +45,10 @@ And here. | Okay. | I think we get it.
 * And last but not least, let's not forget embedded images:
 
 ![React Logo w/ Text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/64px-React-icon.svg.png)`;
+
+export const initalState: InputContextResult = {
+  inputValue: inputDefaultValue,
+  onInputChange: () => {
+    return;
+  },
+};

@@ -52,7 +52,7 @@ $breakpoints: (
     height: auto;
   }
 
-  &--fullscreen {
+  &:has(.card--fullscreen) {
     @include media(sm) {
       height: 100vh;
     }

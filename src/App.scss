@@ -1,22 +1,20 @@
-$breakpoints: (xs: 0,
+$breakpoints: (
+  xs: 0,
   sm: 576px,
   md: 768px,
   lg: 992px,
   xl: 1200px,
-  xxl: 1300px) !default;
+  xxl: 1300px,
+) !default;
 
 @mixin media($size) {
   @if map-has-key($breakpoints, $size) {
     @media (max-width: #{map-get($breakpoints, $size)}) {
       @content;
     }
-  }
-
-  @else if str-length($size)==0 {
+  } @else if str-length($size) == 0 {
     @content;
-  }
-
-  @else {
+  } @else {
     @media ($size) {
       @content;
     }
@@ -53,18 +51,18 @@ $breakpoints: (xs: 0,
   @include media(sm) {
     height: auto;
   }
-}
 
-.app--fullscreen {
-  @include media(sm) {
-    height: 100vh;
-  }
+  &--fullscreen {
+    @include media(sm) {
+      height: 100vh;
+    }
 
-  .card {
-    margin: 0;
+    .card {
+      margin: 0;
 
-    @include media(xl) {
-      max-height: none;
+      @include media(xl) {
+        max-height: none;
+      }
     }
   }
 }
@@ -77,100 +75,96 @@ $breakpoints: (xs: 0,
   flex-direction: column;
   border-radius: 50px;
   overflow: hidden;
-  box-shadow: 41px 41px 82px #cccccc,
-    -41px -41px 82px #ffffff;
+  box-shadow: 41px 41px 82px #cccccc, -41px -41px 82px #ffffff;
   transition: all 0.3s;
   background-color: #f0f0f0;
 
   @include media(md) {
     height: calc(100vh - 20px);
   }
-}
 
-.card--left {
-  margin-right: 20px;
-
-  @include media(xl) {
-    margin-left: 20px;
-    margin-bottom: 10px;
-  }
-
-  @include media(sm) {
-    margin: 0;
-    margin-bottom: 10px;
-  }
-}
-
-.card--right {
-  margin-left: 20px;
-
-  @include media(xl) {
+  &--left {
     margin-right: 20px;
-    margin-bottom: 10px;
-  }
 
-  @include media(sm) {
-    margin: 0;
-    margin-top: 10px;
-  }
-}
+    @include media(xl) {
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
 
-.card__content {
-  overflow-y: scroll;
-  border: none;
-  border-radius: 10px;
-  flex: 1;
-  padding: 20px;
-  outline: none;
-  resize: none;
-  background-color: #f0f0f0;
-  box-shadow: inset 5px 5px 10px #dddddd,
-    inset -5px -5px 10px #ffffff;
-  margin-left: 1rem;
-  margin-right: 1rem;
-
-  @include media(sm) {
-    margin-bottom: 2rem;
-  }
-
-}
-
-.card__header,
-.card__footer {
-  background-color: #f0f0f0;
-  padding: 1rem;
-  text-align: center;
-}
-
-.card__button {
-  width: 40px;
-  height: 40px;
-  border: none;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #ffffff, #d8d8d8);
-  box-shadow: 4px 4px 8px #cccccc,
-    -4px -4px 8px #ffffff;
-  cursor: pointer;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-
-  @include media(md) {
-    @media (orientation: landscape) {
-      display: none;
+    @include media(sm) {
+      margin: 0;
+      margin-bottom: 10px;
     }
   }
 
-  @include media(sm) {
-    display: none;
+  &--right {
+    margin-left: 20px;
+
+    @include media(xl) {
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+
+    @include media(sm) {
+      margin: 0;
+      margin-top: 10px;
+    }
   }
 
-  &:hover {
-    background: linear-gradient(145deg, #d8d8d8, #ffffff);
-  }
-}
+  &__content {
+    overflow-y: scroll;
+    border: none;
+    border-radius: 10px;
+    flex: 1;
+    padding: 20px;
+    outline: none;
+    resize: none;
+    background-color: #f0f0f0;
+    box-shadow: inset 5px 5px 10px #dddddd, inset -5px -5px 10px #ffffff;
+    margin-left: 1rem;
+    margin-right: 1rem;
 
-.card--hidden {
-  width: 0;
-  height: 0;
-  margin: 0;
+    @include media(sm) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__header,
+  &__footer {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  &__button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffffff, #d8d8d8);
+    box-shadow: 4px 4px 8px #cccccc, -4px -4px 8px #ffffff;
+    cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+
+    @include media(md) {
+      @media (orientation: landscape) {
+        display: none;
+      }
+    }
+
+    @include media(sm) {
+      display: none;
+    }
+
+    &:hover {
+      background: linear-gradient(145deg, #d8d8d8, #ffffff);
+    }
+  }
+
+  &--hidden {
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
 }

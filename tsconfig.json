@@ -23,7 +23,8 @@
     /* Path aliases */
     "paths": {
       "@components/*": ["./src/components/*"],
-      "@context/*": ["./src/context/*"]
+      "@context/*": ["./src/context/*"],
+      "@sass/*": ["./src/sass/*"]
     }
   },
   "include": ["src", "./setupTest.ts"],

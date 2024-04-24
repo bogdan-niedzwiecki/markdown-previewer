@@ -12,6 +12,7 @@ export default defineConfig({
     alias: {
       "@components": path.resolve(__dirname, "src/components"),
       "@context": path.resolve(__dirname, "src/context"),
+      "@sass": path.resolve(__dirname, "src/sass"),
     },
   },
   test: {

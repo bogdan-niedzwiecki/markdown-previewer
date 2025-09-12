@@ -30,7 +30,7 @@ describe("Renders main page correctly", () => {
 
     fireEvent.click(inputFullscreenButton);
 
-    expect(inputCard).toHaveClass("card--fullscreen");
+    expect(inputCard).toHaveClass("basis-full");
   });
 
   it("Should show output card in fullscreen mode", () => {
@@ -39,6 +39,6 @@ describe("Renders main page correctly", () => {
     const outputCard = screen.getByTestId("output-card");
 
     fireEvent.click(outputFullscreenButton);
-    expect(outputCard).toHaveClass("card--fullscreen");
+    expect(outputCard).toHaveClass("basis-full");
   });
 });

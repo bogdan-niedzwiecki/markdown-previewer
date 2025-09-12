@@ -2,17 +2,17 @@
 /// <reference types="vite/client" />
 
 import { defineConfig } from "vite";
+import tailwindcss from '@tailwindcss/vite'
 import react from "@vitejs/plugin-react";
 import * as path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       "@components": path.resolve(__dirname, "src/components"),
       "@context": path.resolve(__dirname, "src/context"),
-      "@sass": path.resolve(__dirname, "src/sass"),
     },
   },
   test: {

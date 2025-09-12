@@ -12,31 +12,34 @@ const Output = () => {
   const { isInputFullscreen, isOutputFullscreen, toggleOutputFullscreen } =
     useFullscreenContext();
 
-  const card = classNames("card card--right", {
-    "card--fullscreen": !isInputFullscreen && isOutputFullscreen,
-    "card--hidden": isInputFullscreen && !isOutputFullscreen,
-  });
+  const card = classNames(
+    "basis-1/2 bg-gray-100 w-full flex flex-col rounded-[50px] overflow-hidden shadow-[41px_41px_82px_#cccccc,-41px_-41px_82px_#ffffff] transition-all duration-300",
+    {
+      "basis-full": !isInputFullscreen && isOutputFullscreen,
+      "w-0 h-0 !basis-0 m-0": isInputFullscreen && !isOutputFullscreen,
+    }
+  );
 
   return (
     <div className={card} data-testid="output-card">
-      <header className="card__header">
+      <header className="bg-gray-100 p-4 text-center">
         <FontAwesomeIcon icon={faHtml5} size="2x" />
       </header>
       <div
         data-testid="output"
-        className="card__content"
+        className="overflow-y-auto border-none rounded-[10px] flex-1 p-5 outline-none resize-none bg-gray-100 shadow-[inset_5px_5px_10px_#dddddd,inset_-5px_-5px_10px_#ffffff] ml-4 mr-4 mb-2 sm:mb-0"
         dangerouslySetInnerHTML={{ __html: marked(inputValue) }}
       />
-      <footer className="card__footer">
+      <footer className="bg-gray-100 p-4 text-center">
         <button
           data-testid="output-fullscreen"
-          className="card__button"
+          className="w-10 h-10 border-none rounded-full bg-[linear-gradient(145deg,#ffffff,#d8d8d8)] shadow-[4px_4px_8px_#cccccc,-4px_-4px_8px_#ffffff] cursor-pointer outline-none hover:bg-[linear-gradient(145deg,#d8d8d8,#ffffff)]"
           onClick={toggleOutputFullscreen}
         >
           {isOutputFullscreen ? (
-            <FontAwesomeIcon icon={faColumns} size="2x" />
+            <FontAwesomeIcon icon={faColumns} />
           ) : (
-            <FontAwesomeIcon icon={faArrowsAlt} size="2x" />
+            <FontAwesomeIcon icon={faArrowsAlt} />
           )}
         </button>
       </footer>

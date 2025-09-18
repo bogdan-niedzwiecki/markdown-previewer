@@ -25,7 +25,7 @@ describe("Renders main page correctly", () => {
 
   it("Should show input card in fullscreen mode", () => {
     render(<AppWithContext />);
-    const inputFullscreenButton = screen.getByTestId("input-fullscreen");
+    const inputFullscreenButton = screen.getByTestId("input-card-fullscreen");
     const inputCard = screen.getByTestId("input-card");
 
     fireEvent.click(inputFullscreenButton);
@@ -35,7 +35,7 @@ describe("Renders main page correctly", () => {
 
   it("Should show output card in fullscreen mode", () => {
     render(<AppWithContext />);
-    const outputFullscreenButton = screen.getByTestId("output-fullscreen");
+    const outputFullscreenButton = screen.getByTestId("output-card-fullscreen");
     const outputCard = screen.getByTestId("output-card");
 
     fireEvent.click(outputFullscreenButton);

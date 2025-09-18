@@ -2,4 +2,4 @@
 
 🔥 Live: https://bn-markdown-previewer.netlify.app
 
-#react #typescript #vite #vitest #sass #markdown #lint #husky
+#react #typescript #vite #vitest #tailwind #markdown #lint #husky
